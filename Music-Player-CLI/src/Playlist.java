@@ -15,13 +15,11 @@ public class Playlist {
         musicas.add(musica);
     }
 
-    // Objeto de estudo de hoje:
     public void pularMusica(){
         indiceAtual = (indiceAtual +1) % musicas.size();
         salvarEstado();
     }
 
-    // Objeto de estudo de hoje:
     public void voltarMusica(){
         indiceAtual = (indiceAtual -1 +musicas.size()) % musicas.size();
         salvarEstado();
@@ -37,6 +35,7 @@ public class Playlist {
         }
     }
 
+    // Novo objeto de estudo: Persistência Simples com Arquivo de Texto
     private void salvarEstado() {
         try (java.io.FileWriter fw = new java.io.FileWriter("config.txt")) {
             fw.write(String.valueOf(this.indiceAtual));
