@@ -49,7 +49,16 @@ public class PlayerInterface extends JFrame {
 
         // Inicializa o display com a música atual
         atualizarDisplay();
+        btnAnterior.addActionListener(e -> {
+            playlist.voltarMusica(); // 1. Move o ponteiro e salva o arquivo
+            atualizarDisplay();     // 2. Pega os novos dados e atualiza a tela
+        });
 
+        btnProxima.addActionListener(e -> {
+            playlist.pularMusica();  // 1. Move o ponteiro e salva o arquivo
+            atualizarDisplay();     // 2. Pega os novos dados e atualiza a tela
+        });
+        
         setVisible(true);
     }
 
@@ -60,11 +69,22 @@ public class PlayerInterface extends JFrame {
         btn.setForeground(Color.WHITE);
         btn.setFocusPainted(false);
         btn.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+
+        // :3 OH SOU FRONT-ENDI
+        btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         return btn;
     }
 
     private void atualizarDisplay() {
-        // Aqui usamos o método que você já criou na Playlist!
-        // (Lembre-se de ajustar a Playlist para retornar a música se necessário)
+        Musica atual = playlist.getMusicaAtual();
+
+        if (atual != null ){
+            lblMusica.setText(atual.getTitulo());
+            lblArtista.setText(atual.getArtista());
+        } else {
+            lblMusica.setText("Nenhuma música na playlist");
+            lblArtista.setText("");
+        }
     }
+
 }

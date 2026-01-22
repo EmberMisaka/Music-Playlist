@@ -55,4 +55,11 @@ public class Playlist {
         }
         return 0;
     }
+
+    public Musica getMusicaAtual() {
+        if (musicas.isEmpty()) {
+            return null;
+        }
+        return musicas.get(indiceAtual);
+    }
 }
