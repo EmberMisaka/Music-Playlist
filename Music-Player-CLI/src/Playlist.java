@@ -2,12 +2,13 @@ import java.util.ArrayList;
 
 public class Playlist {
 
+
     private ArrayList<Musica> musicas;
     private int indiceAtual;
 
     public Playlist() {
-       this.musicas = new ArrayList<>();
-        this.indiceAtual = 0;
+        this.musicas = new ArrayList<>();
+        this.indiceAtual = carregarEstado();
     }
 
     public void adicionarMusica(Musica musica) {
@@ -17,11 +18,13 @@ public class Playlist {
     // Objeto de estudo de hoje:
     public void pularMusica(){
         indiceAtual = (indiceAtual +1) % musicas.size();
+        salvarEstado();
     }
 
     // Objeto de estudo de hoje:
     public void voltarMusica(){
         indiceAtual = (indiceAtual -1 +musicas.size()) % musicas.size();
+        salvarEstado();
     }
 
     public void mostrarMusicaAtual(){
@@ -32,5 +35,25 @@ public class Playlist {
             System.out.println("\n Sua vibe do momento é: " + musicaAtual.getTitulo() + " - "
                                 + musicaAtual.getArtista() + " (" + musicaAtual.getDuracao() + "s)");
         }
+    }
+
+    private void salvarEstado() {
+        try (java.io.FileWriter fw = new java.io.FileWriter("config.txt")) {
+            fw.write(String.valueOf(this.indiceAtual));
+        } catch (java.io.IOException e){
+            System.out.println("Erro ao savar progresso: ");
+        }
+    }
+
+    private int carregarEstado() {
+        java.io.File arquivo = new java.io.File("config.txt");
+        if (arquivo.exists()) {
+            try (java.util.Scanner sc = new java.util.Scanner(arquivo)) {
+                return sc.nextInt();
+            } catch (Exception e) {
+                return 0;
+            }
+        }
+        return 0;
     }
 }

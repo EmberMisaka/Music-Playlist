@@ -1,4 +1,6 @@
+
 public class Musica {
+
     private String titulo;
     private String artista;
     private int duracao; // duração em segundos
@@ -20,4 +22,5 @@ public class Musica {
     public int getDuracao(){
         return duracao;
     }
+
 }
