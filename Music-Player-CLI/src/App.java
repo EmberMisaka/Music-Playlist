@@ -18,9 +18,12 @@ public class App {
 
         while (opcao != 0) {
             try {
-                            playlist.mostrarMusicaAtual();
+                playlist.mostrarMusicaAtual();
 
-            System.out.println("Escolha uma opçao: /n [1] Pular música /n [2] Voltar música/n [0] Sair");
+            System.out.println("Escolha uma opçao:"+
+                                "\n [1] Pular música"+
+                                "\n [2] Voltar música"+
+                                "\n [0] Sair");
             opcao = scanner.nextInt();
 
             switch (opcao) {

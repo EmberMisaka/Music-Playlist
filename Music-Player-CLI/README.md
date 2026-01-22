@@ -23,9 +23,9 @@ Diferente de uma lista linear comum, este player trata os dados como um anel.
 Isso evita que o programa tente acessar um índice inexistente (como o índice -1 ou um índice maior que o tamanho da lista), o que é um erro comum em sistemas de software.
 # 📋 Estrutura do Código
 
-| Classe |  Responsabilidade
+| Classe |  Responsabilidade |
 |:-----|:--------:|
-| Musica   | "Modelo de dados (Título, Artista, Duração)"
+| Musica   | "Modelo de dados (Título, Artista, Duração)" |
 | Playlist   |  Gerenciamento da lista e controle do "ponteiro" de execução.  |
 | App   | Interface de usuário e loop principal do sistema. |
 

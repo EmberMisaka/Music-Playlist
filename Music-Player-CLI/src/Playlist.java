@@ -29,7 +29,7 @@ public class Playlist {
             System.out.println("A playlist está vazia.");
         } else {
             Musica musicaAtual = musicas.get(indiceAtual);
-            System.out.println("Sua vibe do momento é: " + musicaAtual.getTitulo() + " - "
+            System.out.println("\n Sua vibe do momento é: " + musicaAtual.getTitulo() + " - "
                                 + musicaAtual.getArtista() + " (" + musicaAtual.getDuracao() + "s)");
         }
     }
